@@ -1,0 +1,36 @@
+Digori Parascovia - 323CC - Tema 2 - PA
+
+Problema 1 - Poduri
+
+Pentru rezolvarea problemei am folosit algoritmul lui Lee cu mici modificari
+pentru cele 3 conditii din problema (pod de tip 'V', 'O', 'D').
+ALgoritmul incepe din punctul de start dat in problema si aplic un bfs, unde 
+coada va mentine punctele parcurse a matricii si un array boolean de visited.
+Cat coada nu e nula, verificam daca am ajuns la destinatie prin functiile 
+auxiliare de isSurface(), isVertical(), isHorizontal() - adica podul curent
+este la margine de matrice si iti permite sa iesi din apa. Conform algoritmului
+lui lee am cercetat 3 cazuri adaptate problemei, daca sunt pe pod de tip 'V', 'O'
+sau de tip 'D'.
+
+Problema 2 - Adrese
+
+Pentru rezolvarea problemei am folosit un dfs pentru a determina componentele conexe, 
+inspirat din laboratorul nr 8.
+Am creat o structura personDistinct care va contine informatiile despre nume, nr, set 
+de emails. In momentul in care citesc datele problemei, creez persoanele si le adaug
+intr-un vector de allPersons, iar toate emailurile le adaug intr-un map 
+{email, index_persoana}. Pe masura ce citesc emailurile, verific daca acel mail a mai
+fost adaugat inainte in map, daca da inseamna ca avem o persoana duplicat, deci creez
+un edge de graf de la (index_persoana_cu_mail_din_map, index_persoana_citita_acum).
+Astfel dupa citire o sa am un graf format din liste de adiacenta care mentine toate
+legaturile dintre persoanele duplicate. Aplic peste acest graf un dfs pentru a cauta
+componentele conexe, pe care le adag intr-un vector duplicates. Acest vector de
+duplicates va contine indecsii persoanelor care se repeta, il parcurg, creez o persoana
+noua si adaug toate mailurile din allPersons[index] in noua persoana, cercetand si numele
+minim lexicografic al persoanei unice. Vectorul de duplicates se curata si tot asa el va
+continua sa contina componentele conexe care devin o persoana unica pana cand am visitat
+toate nodurile din graf.
+
+Tema e ok, odata ce ai ideea de algoritm se rezolva destul de usor. Problema 3 are o 
+descriere foarte stufoasa si neprietenoasa. 
+
